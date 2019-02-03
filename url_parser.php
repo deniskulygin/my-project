@@ -12,37 +12,36 @@ getFragment($url) === null ? : $result['fragment'] = getFragment($url);
 function getScheme($url)
 {
 	if ((($value = parse_url($url, PHP_URL_SCHEME)) === null)){
-		exit("URL is not Valid! Protocol doesn`t mentioned!").PHP_EOL;
-	} else {
-		return $value;
+		exit("URL is not Valid! Protocol doesn`t mentioned!" . PHP_EOL);
 	}
+
+    return $value;
 }
 
 function getHost($url)
 {
     if ((($value = parse_url($url, PHP_URL_HOST)) === null)){
-        exit("URL has no Host!").PHP_EOL;
-    } else {
-        return $value;
+        exit("URL has no Host!" . PHP_EOL);
     }
+
+    return $value;
 }
 
 function getPath($url)
 {
     if ((($value = parse_url($url, PHP_URL_PATH)) === null)){
         return null;
-    } else {
-        return $value;
     }
+
+    return $value;
 }
 
 function getQuery($url)
 {
     if ((($value = parse_url($url, PHP_URL_QUERY)) === null)){
         return null;
-    } else {
-        return $value;
     }
+    return $value;
 }
 
 function getFragment($url)
@@ -54,9 +53,4 @@ function getFragment($url)
     }
 }
 
-
 print_r($result);
-
-
-?>
-
