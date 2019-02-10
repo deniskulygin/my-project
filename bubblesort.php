@@ -1,7 +1,7 @@
 <?php
 
 
-function Bubblesort($array): array
+function getBubbleSortedArray($array): array
 {
 	for ($i = 0, $length = count($array); $i < $length; $i++) {
 
