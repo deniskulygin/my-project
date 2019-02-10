@@ -1,11 +1,11 @@
 
 <?php
 
-isset($argv[1]) ?: exit('Enter quantaty of numbers in the edge of the square .'.PHP_EOL);
+isset($argv[1]) ?: exit("Enter quantity of numbers of the square's edge.".PHP_EOL);
 
-if ($argv[2] === "dot") {
+if (strtolower($argv[2]) === "dot") {
 	Dot($argv[1]);
-} elseif ($argv[2] === "right") {
+} elseif (strtolower($argv[2]) === "right") {
 	Right($argv[1]);
 } elseif (isset($argv[2])) {
     exit('Second argument must be <dot> OR <right>.'.PHP_EOL);
