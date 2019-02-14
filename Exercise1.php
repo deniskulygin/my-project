@@ -99,7 +99,7 @@ $a = new Student;
 $a -> setFirstName('Denis');
 $a -> setLastName('Kulygin');
 $a -> setGender('male');
-$a -> setStatus('senior');
+$a -> setStatus('junior');
 $a -> setGPA(5);
 $a -> studyTime(100);
 $a -> showMyself();
