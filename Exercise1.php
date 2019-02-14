@@ -3,9 +3,9 @@
 Class Student
 {
 
-private $firstname;
+private $firstName;
 
-private $lastname;
+private $lastName;
 
 private $gender;
 
@@ -13,21 +13,21 @@ private $status;
 
 private $gpa;
 
-private $study_time;
+private $study_time = 0;
 
-public function setFirstName($firstname)
+public function setFirstName($firstName)
 {
-	$this -> firstname = $firstname;
+	$this -> firstName = $firstName;
 }
 
-public function setLastName($lastname)
+public function setLastName($lastName)
 {
-	$this -> lastname = $lastname;
+	$this -> lastName = $lastName;
 }
 
 public function setGender($gender)
 {
-	if($gender === 'male' || $gender === 'male') {
+	if($gender === 'male' || $gender === 'female') {
         $this -> gender = $gender;
     } else {
         throw new RuntimeException ('Gender can be only <male> or <female>');
@@ -50,31 +50,32 @@ public function setGPA($gpa)
 }
 
 
-public function studyTime(int $study_time)
+public function studyTime($study_time = 0)
 {
-	if(isset($this -> gpa)) {
-        $this -> study_time = $this -> gpa + log($study_time);
+    $this -> study_time = $study_time;
+	if($this -> study_time !== 0) {
+        return $this -> study_time = $this -> gpa + log($this -> study_time);
     } else {
-        throw new RuntimeException ('GPA is not set, we cannot calculate Study Time');
+        return $this -> study_time;
     }
 }
 
 public function showMyself()
 {
-	if (isset($this -> firstname)) {
-        echo "First Name: {$this -> firstname}" . PHP_EOL;
+	if (isset($this -> firstName)) {
+        echo "First Name: {$this -> firstName}" . PHP_EOL;
     } else {
-        throw new RuntimeExeption ('First Name is not set.');
+        throw new RuntimeException('First Name is not set.');
 	}
-	if (isset($this -> lastname)) {
-        echo "Last Name: {$this -> lastname}" . PHP_EOL;
+	if (isset($this -> lastName)) {
+        echo "Last Name: {$this -> lastName}" . PHP_EOL;
     } else {
-        new RuntimeExeption ('Last Name is not set.');
+        throw new RuntimeException ('Last Name is not set.');
 	}
 	if (isset($this -> gender)) {
         echo "Gender: {$this -> gender}" . PHP_EOL;
     } else {
-        new RuntimeExeption ('Gender is not set.');
+        throw new RuntimeException ('Gender is not set.');
     }
 	if (isset($this -> status)) {
         echo "Status: {$this -> status}" . PHP_EOL;
@@ -87,19 +88,55 @@ public function showMyself()
         throw new RuntimeException ('GPA is not set.');
     }
 
-	if (isset($this -> study_time)) {
-        echo "Study Time: {$this -> study_time}" . PHP_EOL;
-    } else {
-        throw new RuntimeException ('Study Time is not set.');
-    }
+    echo "Study Time: {$this -> study_time}" . PHP_EOL;
 }
 }
 
-$a = new Student;
-$a -> setFirstName('Denis');
-$a -> setLastName('Kulygin');
-$a -> setGender('male');
-$a -> setStatus('junior');
-$a -> setGPA(5);
-$a -> studyTime(100);
-$a -> showMyself();
+$studentList = ['mikebarnes', 'jimnickerson', 'jackindabox', 'janemiller', 'maryscott'];
+
+foreach($studentList as $v) {
+    $studentList[$v] = new Student();
+}
+
+
+$studentList['mikebarnes'] -> setFirstName('Mike');
+$studentList['mikebarnes'] -> setLastName('Barnes');
+$studentList['mikebarnes'] -> setGender('male');
+$studentList['mikebarnes'] -> setStatus('freshman');
+$studentList['mikebarnes'] -> setGPA(4);
+
+
+$studentList['jimnickerson'] -> setFirstName('Jim');
+$studentList['jimnickerson'] -> setLastName('Nickerson');
+$studentList['jimnickerson'] -> setGender('male');
+$studentList['jimnickerson'] -> setStatus('freshman');
+$studentList['jimnickerson'] -> setGPA(3);
+
+$studentList['jackindabox'] -> setFirstName('Jack');
+$studentList['jackindabox'] -> setLastName('Indabox');
+$studentList['jackindabox'] -> setGender('male');
+$studentList['jackindabox'] -> setStatus('junior');
+$studentList['jackindabox'] -> setGPA(2.5);
+
+$studentList['janemiller'] -> setFirstName('Jane');
+$studentList['janemiller'] -> setLastName('Miller');
+$studentList['janemiller'] -> setGender('female');
+$studentList['janemiller'] -> setStatus('senior');
+$studentList['janemiller'] -> setGPA(3.6);
+
+$studentList['maryscott'] -> setFirstName('Mary');
+$studentList['maryscott'] -> setLastName('Scott');
+$studentList['maryscott'] -> setGender('female');
+$studentList['maryscott'] -> setStatus('senior');
+$studentList['maryscott'] -> setGPA(2.7);
+
+foreach($studentList as $v) {
+    $studentList[$v] -> showMyself() . PHP_EOL;
+    PHP_EOL;
+    PHP_EOL;
+}
+
+
+
+
+
