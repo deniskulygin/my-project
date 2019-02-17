@@ -50,7 +50,7 @@ public function setGPA($gpa)
 }
 
 
-public function studyTime($study_time = 0)
+public function setStudyTime($study_time = 0)
 {
     $this -> study_time = $study_time;
 	if($this -> study_time !== 0) {
@@ -94,7 +94,7 @@ public function showMyself()
 
 $studentList = ['mikebarnes', 'jimnickerson', 'jackindabox', 'janemiller', 'maryscott'];
 
-foreach($studentList as $v) {
+foreach($studentList as $key => $v) {
     $studentList[$v] = new Student();
 }
 
@@ -130,11 +130,24 @@ $studentList['maryscott'] -> setGender('female');
 $studentList['maryscott'] -> setStatus('senior');
 $studentList['maryscott'] -> setGPA(2.7);
 
-foreach($studentList as $v) {
-    $studentList[$v] -> showMyself() . PHP_EOL;
-    PHP_EOL;
+foreach($studentList as $key => $v) {
+    !is_object($studentList[$v]) ?: $studentList[$v] -> showMyself();
     PHP_EOL;
 }
+
+$studentList['mikebarnes'] -> setStudyTime(60);
+$studentList['jimnickerson'] -> setStudyTime(100);
+$studentList['jackindabox'] -> setStudyTime(40);
+$studentList['janemiller'] -> setStudyTime(300);
+$studentList['maryscott'] -> setStudyTime(1000);
+
+foreach($studentList as $key => $v) {
+    !is_object($studentList[$v]) ?: $studentList[$v] -> showMyself();
+    PHP_EOL;
+}
+
+
+
 
 
 
