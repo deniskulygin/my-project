@@ -3,98 +3,144 @@
 Class Student
 {
 
-private $firstName;
+    private $firstName;
 
-private $lastName;
+    private $lastName;
 
-private $gender;
+    private $gender;
 
-private $status;
+    private $status;
 
-private $gpa;
+    private $gpa;
 
-private $study_time = 0;
+    private $study_time = 0;
 
-public function setFirstName($firstName)
-{
-	$this -> firstName = $firstName;
-}
+    public function setFirstName($firstName): self
+    {
+        $this->firstName = $firstName;
 
-public function setLastName($lastName)
-{
-	$this -> lastName = $lastName;
-}
+        return $this;
+    }
 
-public function setGender($gender)
-{
-	if($gender === 'male' || $gender === 'female') {
-        $this -> gender = $gender;
-    } else {
-        throw new RuntimeException ('Gender can be only <male> or <female>');
-	}
-}
+    public function setLastName($lastName): self
+    {
+        $this->lastName = $lastName;
 
+        return $this;
+    }
 
-public function setStatus($status)
-{
-	if($status === 'freshman' || $status=== 'sophomore' || $status === 'junior' || $status === 'senior') {
-        $this -> status = $status;
-    } else {
-        throw new RuntimeException ('Status can be only <freshman> or <sophomore> or <junior> or <senior>');
-	}
-}
-
-public function setGPA($gpa)
-{
-	$gpa > 4.0 ? $this -> gpa = 4.0 : $this -> gpa = $gpa;
-}
+    public function setGender($gender)
+    {
+        if ($gender === 'male' || $gender === 'female') {
+            $this->gender = $gender;
+        } else {
+            throw new RuntimeException ('Gender can be only <male> or <female>');
+        }
+    }
 
 
-public function setStudyTime($study_time = 0)
-{
-    $this -> study_time = $study_time;
-	if($this -> study_time !== 0) {
-        return $this -> study_time = $this -> gpa + log($this -> study_time);
-    } else {
-        return $this -> study_time;
+    public function setStatus($status)
+    {
+        if ($status === 'freshman' || $status === 'sophomore' || $status === 'junior' || $status === 'senior') {
+            $this->status = $status;
+        } else {
+            throw new RuntimeException ('Status can be only <freshman> or <sophomore> or <junior> or <senior>');
+        }
+    }
+
+    public function setGPA($gpa)
+    {
+        $gpa > 4.0 ? $this->gpa = 4.0 : $this->gpa = $gpa;
+    }
+
+
+    public function setStudyTime($study_time = 0)
+    {
+        $this->study_time = $study_time;
+        if ($this->study_time !== 0) {
+            return $this->study_time = $this->gpa + log($this->study_time);
+        } else {
+            return $this->study_time;
+        }
+    }
+
+    public function showMyself()
+    {
+        if (isset($this->firstName)) {
+            echo "First Name: {$this -> firstName}" . PHP_EOL;
+        } else {
+            throw new RuntimeException('First Name is not set.');
+        }
+
+        if (isset($this->lastName)) {
+            echo "Last Name: {$this -> lastName}" . PHP_EOL;
+        } else {
+            throw new RuntimeException ('Last Name is not set.');
+        }
+
+        if (isset($this->gender)) {
+            echo "Gender: {$this -> gender}" . PHP_EOL;
+        } else {
+            throw new RuntimeException ('Gender is not set.');
+        }
+
+        if (isset($this->status)) {
+            echo "Status: {$this -> status}" . PHP_EOL;
+        } else {
+            throw new RuntimeException ('Status is not set.');
+        }
+
+        if (isset($this->gpa)) {
+            echo "GPA: {$this -> gpa}" . PHP_EOL;
+        } else {
+            throw new RuntimeException ('GPA is not set.');
+        }
+
+        echo "Study Time: {$this -> study_time}" . PHP_EOL;
     }
 }
 
-public function showMyself()
-{
-	if (isset($this -> firstName)) {
-        echo "First Name: {$this -> firstName}" . PHP_EOL;
-    } else {
-        throw new RuntimeException('First Name is not set.');
-	}
-	if (isset($this -> lastName)) {
-        echo "Last Name: {$this -> lastName}" . PHP_EOL;
-    } else {
-        throw new RuntimeException ('Last Name is not set.');
-	}
-	if (isset($this -> gender)) {
-        echo "Gender: {$this -> gender}" . PHP_EOL;
-    } else {
-        throw new RuntimeException ('Gender is not set.');
-    }
-	if (isset($this -> status)) {
-        echo "Status: {$this -> status}" . PHP_EOL;
-    } else {
-        throw new RuntimeException ('Status is not set.');
-    }
-	if (isset($this -> gpa)) {
-        echo "GPA: {$this -> gpa}" . PHP_EOL;
-    } else {
-        throw new RuntimeException ('GPA is not set.');
-    }
+//public function __invoke()
+//{
+//    $this->showMyself();
+//}
+//}
+//
+//$a = [];
+//$sudentName = [
+//    'mikebarnes' => [
+//        'firstName' => 'Mike',
+//        'secondName' => 'Barnes',
+//        'gender' => 'male',
+//        'status' => 'freshman',
+//        'gpa' => 4,
+//    ],
+//];
+//
+//$a = require_once 'aaa.php';
+//
+//foreach ($sudentName as $studentName => $data) {
+//    $newStudent = new Student($studentName, $data);
+//    $newStudent
+//        ->setFirstName($data['firstName'])
+//        ->setLastName();
+//
+//    $a[$studentName] = $newStudent;
+//}
+//
+//foreach ($a as $st) {
+//    echo $st();
+//}
 
-    echo "Study Time: {$this -> study_time}" . PHP_EOL;
-}
-}
+
+//Magic Methods
+
+
+
 
 $studentList = ['mikebarnes', 'jimnickerson', 'jackindabox', 'janemiller', 'maryscott'];
 
-foreach($studentList as $key => $v) {
+foreach($studentList as $v) {
     $studentList[$v] = new Student();
 }
 
@@ -131,20 +177,31 @@ $studentList['maryscott'] -> setStatus('senior');
 $studentList['maryscott'] -> setGPA(2.7);
 
 foreach($studentList as $key => $v) {
-    !is_object($studentList[$v]) ?: $studentList[$v] -> showMyself();
-    PHP_EOL;
+    var_dump($v);
+//    var_dump($v);
+//    die;
+//    if (!is_object($studentList[$v])) {
+//        continue;
+//    }
+//
+//    $studentList[$v] -> showMyself();
+//    PHP_EOL;
 }
 
-$studentList['mikebarnes'] -> setStudyTime(60);
-$studentList['jimnickerson'] -> setStudyTime(100);
-$studentList['jackindabox'] -> setStudyTime(40);
-$studentList['janemiller'] -> setStudyTime(300);
-$studentList['maryscott'] -> setStudyTime(1000);
-
-foreach($studentList as $key => $v) {
-    !is_object($studentList[$v]) ?: $studentList[$v] -> showMyself();
-    PHP_EOL;
-}
+//$studentList['mikebarnes'] -> setStudyTime(60);
+//$studentList['jimnickerson'] -> setStudyTime(100);
+//$studentList['jackindabox'] -> setStudyTime(40);
+//$studentList['janemiller'] -> setStudyTime(300);
+//$studentList['maryscott'] -> setStudyTime(1000);
+//
+//foreach($studentList as $key => $v) {
+//    if (!is_object($studentList[$v])) {
+//        continue;
+//    }
+//
+//    $studentList[$v]->showMyself();
+//    PHP_EOL;
+//}
 
 
 
