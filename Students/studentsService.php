@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '\studentsData.php';
 
-Class Student extends studentsData
+Class Student
 {
     /**
      * @var string
