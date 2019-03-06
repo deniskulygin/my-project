@@ -34,9 +34,13 @@ Class Student
      */
     private $study_time = 0;
 
-    public function __construct()
+    public function __construct($firstName, $secondName, $gender, $status, $gpa)
     {
-
+        $this->setFirstName($firstName)
+            ->setLastName($secondName)
+            ->setGender($gender)
+            ->setStatus($status)
+            ->setGPA($gpa);
     }
 
     /**
@@ -126,33 +130,38 @@ Class Student
         if (!isset($this->firstName)) {
             throw new RuntimeException('First Name is not set.');
         }
-        echo "First Name: {$this -> firstName}" . PHP_EOL;
+        echo "First Name: {$this->firstName}" . PHP_EOL;
 
         if (!isset($this->lastName)) {
             throw new RuntimeException ('Last Name is not set.');
         }
-        echo "Last Name: {$this -> lastName}" . PHP_EOL;
+        echo "Last Name: {$this->lastName}" . PHP_EOL;
 
         if (!isset($this->gender)) {
             throw new RuntimeException ('Gender is not set.');
         }
-        echo "Gender: {$this -> gender}" . PHP_EOL;
+        echo "Gender: {$this->gender}" . PHP_EOL;
 
         if (!isset($this->status)) {
             throw new RuntimeException ('Status is not set.');
-        } echo "Status: {$this -> status}" . PHP_EOL;
+        } echo "Status: {$this->status}" . PHP_EOL;
 
         if (!isset($this->gpa)) {
             throw new RuntimeException ('GPA is not set.');
         }
-        echo "GPA: {$this -> gpa}" . PHP_EOL;
+        echo "GPA: {$this->gpa}" . PHP_EOL;
 
-        echo "Study Time: {$this -> study_time}" . PHP_EOL;
+        echo "Study Time: {$this->study_time}" . PHP_EOL;
     }
 
     public function __invoke()
     {
         $this->showMyself();
+    }
+
+    public function __toString()
+    {
+        return "This is the student object";
     }
 
 }

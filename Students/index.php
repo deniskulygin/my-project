@@ -6,13 +6,7 @@ require_once  __DIR__.'\studentsService.php';
 $studentsData = (new studentsData())->getStudentsData();
 
 foreach ($studentsData as $studentName => $data) {
-    $studentsData[$studentName] = new Student();
-    $studentsData[$studentName]
-        ->setFirstName($data['firstName'])
-        ->setLastName($data['secondName'])
-        ->setGender($data['gender'])
-        ->setStatus($data['status'])
-        ->setGPA($data['gpa']);
+    $studentsData[$studentName] = new Student($data['firstName'], $data['secondName'], $data['gender'], $data['status'], $data['gpa']);
 }
 
 echo '                          | Without Study Time |'.PHP_EOL;
@@ -38,6 +32,7 @@ foreach($studentsData as $student) {
     if (!($student instanceof Student)) {
         continue;
     }
+    echo $student.PHP_EOL;
     $student();
     PHP_EOL;
 }
