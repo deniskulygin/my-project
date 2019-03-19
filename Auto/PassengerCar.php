@@ -20,6 +20,7 @@ Class PassengerCar extends Car
 
     /**
      * @return string
+     * @throws RuntimeException
      */
     public function getEquipment(): string
     {
