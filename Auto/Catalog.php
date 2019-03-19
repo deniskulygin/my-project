@@ -9,8 +9,9 @@ Class Catalog
 
     /**
      * @param Car $car
+     * @return void
      */
-    public function addCar(Car $car)
+    public function addCar(Car $car): void
     {
         $this->cars[] = $car;
     }
