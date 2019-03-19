@@ -13,7 +13,7 @@ if (strtolower($argv[2]) === "dot") {
 
 $first = 0;
 
-$number;
+$number = 0;
 
 function getDotResult($edge) 
 {
