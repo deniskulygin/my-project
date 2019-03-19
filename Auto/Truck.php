@@ -20,6 +20,7 @@ Class Truck extends Car
 
     /**
      * @return string
+     * @throws RuntimeException
      */
     public function getLoadCapacity(): string
     {

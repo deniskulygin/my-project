@@ -1,4 +1,5 @@
 <?php
+
 Class Car
 {
     /**
@@ -23,6 +24,7 @@ Class Car
 
     /**
      * @return string
+     * @throws RuntimeException
      */
     public function getBrand():string
     {
@@ -44,6 +46,7 @@ Class Car
 
     /**
      * @return int
+     * @throws RuntimeException
      */
     public function getYearOfManufacture(): int
     {
@@ -65,6 +68,7 @@ Class Car
 
     /**
      * @return string
+     * @throws RuntimeException
      */
     public function getModel(): string
     {
@@ -87,6 +91,7 @@ Class Car
 
     /**
      * @return string
+     * @throws RuntimeException
      */
     public function getVin(): string
     {
