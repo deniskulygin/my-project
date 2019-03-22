@@ -13,21 +13,21 @@ Class Truck extends Car
      * @return void
      * @param string
      */
-    public function setLoadCapacity($loadCapacity): void
+    public function setLoadCapacity(string $loadCapacity): void
     {
         $this->loadCapacity = $loadCapacity;
     }
 
     /**
      * @return string
-     * @throws RuntimeException
+     * @throws \RuntimeException
      */
     public function getLoadCapacity(): string
     {
         if(isset($this->loadCapacity)) {
             return $this->loadCapacity;
         } else {
-            throw new RuntimeException('Truck load capacity wasn`t set');
+            throw new \RuntimeException('Truck load capacity wasn`t set');
         }
     }
 }

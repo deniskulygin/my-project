@@ -10,24 +10,24 @@ Class PassengerCar extends Car
     private $equipment;
 
     /**
-     * @param $equipment
+     * @param string
      * @return void
      */
-    public function setEquipment($equipment): void
+    public function setEquipment(string $equipment): void
     {
         $this->equipment = $equipment;
     }
 
     /**
      * @return string
-     * @throws RuntimeException
+     * @throws \RuntimeException
      */
     public function getEquipment(): string
     {
         if(isset($this->equipment)) {
             return $this->equipment;
         } else {
-            throw new RuntimeException('Passenger car equipment wasn`t set');
+            throw new \RuntimeException('Passenger car equipment wasn`t set');
         }
     }
 }
