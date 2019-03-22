@@ -39,7 +39,7 @@ Class Car
      * @param string
      * @return void
      */
-    public function setBrand($brand): void
+    public function setBrand(string $brand): void
     {
         $this->brand = $brand;
     }
@@ -61,7 +61,7 @@ Class Car
      * @param int
      * @return void
      */
-    public function setYearOfManufacture($yearOfManufacture): void
+    public function setYearOfManufacture(int $yearOfManufacture): void
     {
         $this->yearOfManufacture = $yearOfManufacture;
     }
@@ -83,7 +83,7 @@ Class Car
      * @param string
      * @return void
      */
-    public function setModel($model): void
+    public function setModel(string $model): void
     {
 
         $this->model = $model;
@@ -106,7 +106,7 @@ Class Car
      * @param string
      * @return void
      */
-    public function setVin($vin): void
+    public function setVin(string $vin): void
     {
         $this->vin = $vin;
     }

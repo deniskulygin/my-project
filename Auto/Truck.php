@@ -13,7 +13,7 @@ Class Truck extends Car
      * @return void
      * @param string
      */
-    public function setLoadCapacity($loadCapacity): void
+    public function setLoadCapacity(string $loadCapacity): void
     {
         $this->loadCapacity = $loadCapacity;
     }

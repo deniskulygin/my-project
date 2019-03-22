@@ -10,10 +10,10 @@ Class PassengerCar extends Car
     private $equipment;
 
     /**
-     * @param $equipment
+     * @param string
      * @return void
      */
-    public function setEquipment($equipment): void
+    public function setEquipment(string $equipment): void
     {
         $this->equipment = $equipment;
     }
