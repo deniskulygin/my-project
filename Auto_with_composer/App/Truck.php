@@ -2,7 +2,7 @@
 
 namespace App;
 
-Class Truck extends Car
+class Truck extends Car
 {
     /**
      * @var string
@@ -26,8 +26,8 @@ Class Truck extends Car
     {
         if(isset($this->loadCapacity)) {
             return $this->loadCapacity;
-        } else {
-            throw new \RuntimeException('Truck load capacity wasn`t set');
         }
+
+        throw new \RuntimeException('Truck load capacity wasn`t set');
     }
 }

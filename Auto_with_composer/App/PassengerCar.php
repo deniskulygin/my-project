@@ -2,7 +2,7 @@
 
 namespace App;
 
-Class PassengerCar extends Car
+class PassengerCar extends Car
 {
     /**
      * @var string
@@ -26,8 +26,8 @@ Class PassengerCar extends Car
     {
         if(isset($this->equipment)) {
             return $this->equipment;
-        } else {
-            throw new \RuntimeException('Passenger car equipment wasn`t set');
         }
+
+        throw new \RuntimeException('Passenger car equipment wasn`t set');
     }
 }

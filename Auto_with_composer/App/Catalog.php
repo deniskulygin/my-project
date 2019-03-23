@@ -2,7 +2,7 @@
 
 namespace App;
 
-Class Catalog
+class Catalog
 {
     /**
      * @var array
@@ -19,9 +19,9 @@ Class Catalog
     }
 
     /**
-     * @return void
+     * @return Catalog
      **/
-    public function getCarsInfo(): void
+    public function displayCarsInfo(): self
     {
         foreach ($this->cars as $car)
         {
@@ -35,5 +35,7 @@ Class Catalog
                 echo $car->getLoadCapacity() . PHP_EOL;
             }
         }
+
+        return $this;
     }
 }
