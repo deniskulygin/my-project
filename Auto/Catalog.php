@@ -1,6 +1,6 @@
 <?php
 
-Class Catalog
+class Catalog
 {
     /**
      * @var array

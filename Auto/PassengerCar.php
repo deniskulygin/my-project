@@ -2,7 +2,7 @@
 
 require_once __DIR__.'\Car.php';
 
-Class PassengerCar extends Car
+class PassengerCar extends Car
 {
     /**
      * @var string
