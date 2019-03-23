@@ -23,6 +23,6 @@ $truck->setLoadCapacity('12 ton');
 $catalog = new Catalog();
 $catalog->addCar($passengerCar);
 $catalog->addCar($truck);
-$catalog->getCarsInfo();
+$catalog->displayCarsInfo();
 
 

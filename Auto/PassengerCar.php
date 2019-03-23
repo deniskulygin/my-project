@@ -20,14 +20,14 @@ Class PassengerCar extends Car
 
     /**
      * @return string
-     * @throws RuntimeException
+     * @throws \RuntimeException
      */
     public function getEquipment(): string
     {
         if(isset($this->equipment)) {
             return $this->equipment;
-        } else {
-            throw new RuntimeException('Passenger car equipment wasn`t set');
         }
+
+            throw new \RuntimeException('Passenger car equipment wasn`t set');
     }
 }
