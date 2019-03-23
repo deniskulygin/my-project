@@ -23,8 +23,7 @@ class Catalog
      **/
     public function displayCarsInfo(): self
     {
-        foreach ($this->cars as $car)
-        {
+        foreach ($this->cars as $car) {
             echo $car->getBrand() . PHP_EOL;
             echo $car->getYearOfManufacture() . PHP_EOL;
             echo $car->getModel() . PHP_EOL;
