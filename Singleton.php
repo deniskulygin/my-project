@@ -30,7 +30,7 @@ final class DatabaseConnection
      */
     public static function getDbConnection(string $dsn, string $username, string $password): \PDO
     {
-        if (static::$db !== null) {
+        if (static::$db == null) {
             static::$db = static::establishConnection($dsn, $username, $password);
         }
 
